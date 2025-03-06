@@ -1,0 +1,28 @@
+databaseChangeLog:
+  - preConditions:
+      - runningAs:
+          username: myuser
+  - changeSet:
+      id: create-coworking-table
+      author: a.khilko
+      preConditions:
+        - onFail: WARN
+        - not:
+            - tableExists:
+                tableName: coworking
+      changes:
+        - createTable:
+            tableName: coworking
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: address
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
