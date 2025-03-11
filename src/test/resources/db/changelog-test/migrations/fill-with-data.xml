@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <!--    Coworking 0    -->
+    <changeSet id="insert-coworking-0" author="admin">
+        <insert tableName="coworking">
+            <column name="address">Lenina st., 10</column>
+        </insert>
+    </changeSet>
+
+    <changeSet id="insert-rooms-0" author="admin">
+        <insert tableName="room">
+            <column name="id" valueSequenceNext="room_id_seq"/>
+            <column name="label" value="Room 1"/>
+            <column name="coworking_id" valueComputed="(SELECT id from coworking WHERE address = 'Lenina st., 10')"/>
+        </insert>
+
+        <insert tableName="room">
+            <column name="id" valueSequenceNext="room_id_seq"/>
+            <column name="label" value="Room 2"/>
+            <column name="coworking_id" valueComputed="(SELECT id from coworking WHERE address = 'Lenina st., 10')"/>
+        </insert>
+
+        <insert tableName="room">
+            <column name="id" valueSequenceNext="room_id_seq"/>
+            <column name="label" value="Room 3"/>
+            <column name="coworking_id" valueComputed="(SELECT id from coworking WHERE address = 'Lenina st., 10')"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="insert-places-0" author="admin">
+        <insert tableName="place">
+            <column name="id" valueSequenceNext="place_id_seq"/>
+            <column name="label" value="Place 1"/>
+            <column name="room_id" valueComputed="(SELECT id from room WHERE label = 'Room 1' AND coworking_id = (SELECT id FROM coworking WHERE address = 'Lenina st., 10'))"/>
+        </insert>
+
+        <insert tableName="place">
+            <column name="id" valueSequenceNext="place_id_seq"/>
+            <column name="label" value="Place 2"/>
+            <column name="room_id" valueComputed="(SELECT id from room WHERE label = 'Room 1' AND coworking_id = (SELECT id FROM coworking WHERE address = 'Lenina st., 10'))"/>
+        </insert>
+
+        <insert tableName="place">
+            <column name="id" valueSequenceNext="place_id_seq"/>
+            <column name="label" value="Place 3"/>
+            <column name="room_id" valueComputed="(SELECT id from room WHERE label = 'Room 1' AND coworking_id = (SELECT id FROM coworking WHERE address = 'Lenina st., 10'))"/>
+        </insert>
+
+        <insert tableName="place">
+            <column name="id" valueSequenceNext="place_id_seq"/>
+            <column name="label" value="Place 1"/>
+            <column name="room_id" valueComputed="(SELECT id from room WHERE label = 'Room 3' AND coworking_id = (SELECT id FROM coworking WHERE address = 'Lenina st., 10'))"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="insert-reservations-0" author="admin">
+        <insert tableName="reservation">
+            <column name="reserved_from" value="2025-03-09 14:09:28 +3:00"/>
+            <column name="reserved_to" value="2025-03-09 15:09:28 +3:00"/>
+            <column name="room_id" valueComputed="(SELECT id from room WHERE label = 'Room 1' AND coworking_id = (SELECT id FROM coworking WHERE address = 'Lenina st., 10'))"/>
+        </insert>
+
+        <insert tableName="reservation">
+            <column name="reserved_from" value="2025-03-10 14:09:28 +3:00"/>
+            <column name="reserved_to" value="2025-03-10 15:09:28 +3:00"/>
+            <column name="room_id" valueComputed="(SELECT id from room WHERE label = 'Room 1' AND coworking_id = (SELECT id FROM coworking WHERE address = 'Lenina st., 10'))"/>
+        </insert>
+
+        <insert tableName="reservation">
+            <column name="reserved_from" value="2025-03-10 16:09:28 +3:00"/>
+            <column name="reserved_to" value="2025-03-10 17:09:28 +3:00"/>
+            <column name="room_id" valueComputed="(SELECT id from room WHERE label = 'Room 1' AND coworking_id = (SELECT id FROM coworking WHERE address = 'Lenina st., 10'))"/>
+        </insert>
+
+        <insert tableName="reservation">
+            <column name="reserved_from" value="2025-03-11 16:09:28 +3:00"/>
+            <column name="reserved_to" value="2025-03-11 17:09:28 +3:00"/>
+            <column name="room_id" valueComputed="(SELECT id from room WHERE label = 'Room 1' AND coworking_id = (SELECT id FROM coworking WHERE address = 'Lenina st., 10'))"/>
+        </insert>
+    </changeSet>
+
+    <!--    Coworking 1    -->
+    <changeSet id="insert-coworking-1" author="admin">
+        <insert tableName="coworking">
+            <column name="address">Cosmonavtov st., 10</column>
+        </insert>
+    </changeSet>
+
+    <changeSet id="insert-rooms-1" author="admin">
+        <insert tableName="room">
+            <column name="id" valueSequenceNext="room_id_seq"/>
+            <column name="label" value="Room 1"/>
+            <column name="coworking_id" valueComputed="(SELECT id from coworking WHERE address = 'Cosmonavtov st., 10')"/>
+        </insert>
+
+        <insert tableName="room">
+            <column name="id" valueSequenceNext="room_id_seq"/>
+            <column name="label" value="Room 2"/>
+            <column name="coworking_id" valueComputed="(SELECT id from coworking WHERE address = 'Cosmonavtov st., 10')"/>
+        </insert>
+
+        <insert tableName="room">
+            <column name="id" valueSequenceNext="room_id_seq"/>
+            <column name="label" value="Room 3"/>
+            <column name="coworking_id" valueComputed="(SELECT id from coworking WHERE address = 'Cosmonavtov st., 10')"/>
+        </insert>
+
+        <insert tableName="room">
+            <column name="id" valueSequenceNext="room_id_seq"/>
+            <column name="label" value="Room 4"/>
+            <column name="coworking_id" valueComputed="(SELECT id from coworking WHERE address = 'Cosmonavtov st., 10')"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="insert-places-1" author="admin">
+        <insert tableName="place">
+            <column name="id" valueSequenceNext="place_id_seq"/>
+            <column name="label" value="Place 1"/>
+            <column name="room_id" valueComputed="(SELECT id from room WHERE label = 'Room 1' AND coworking_id = (SELECT id FROM coworking WHERE address = 'Cosmonavtov st., 10'))"/>
+        </insert>
+
+        <insert tableName="place">
+            <column name="id" valueSequenceNext="place_id_seq"/>
+            <column name="label" value="Place 1"/>
+            <column name="room_id" valueComputed="(SELECT id from room WHERE label = 'Room 2' AND coworking_id = (SELECT id FROM coworking WHERE address = 'Cosmonavtov st., 10'))"/>
+        </insert>
+
+        <insert tableName="place">
+            <column name="id" valueSequenceNext="place_id_seq"/>
+            <column name="label" value="Place 1"/>
+            <column name="room_id" valueComputed="(SELECT id from room WHERE label = 'Room 3' AND coworking_id = (SELECT id FROM coworking WHERE address = 'Cosmonavtov st., 10'))"/>
+        </insert>
+
+        <insert tableName="place">
+            <column name="id" valueSequenceNext="place_id_seq"/>
+            <column name="label" value="Place 1"/>
+            <column name="room_id" valueComputed="(SELECT id from room WHERE label = 'Room 4' AND coworking_id = (SELECT id FROM coworking WHERE address = 'Cosmonavtov st., 10'))"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

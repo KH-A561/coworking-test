@@ -1,3 +1,7 @@
 databaseChangeLog:
   - include: 
       file: db/changelog/migrations/create-table-coworking.yaml
+  - include:
+      file: db/changelog/migrations/07-01-changelog.xml
+  - include:
+      file: db/changelog/migrations/fill-with-data.xml

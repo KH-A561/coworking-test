@@ -1,4 +1,6 @@
 package ru.akhilko.coworkingtest.dto.request;
 
-public record UpdateCoworkingRequest() {
+import jakarta.validation.constraints.NotBlank;
+
+public record UpdateCoworkingRequest(@NotBlank String address) {
 }

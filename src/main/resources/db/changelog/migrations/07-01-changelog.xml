@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.29.xsd"
+        objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+    <changeSet id="1741365164655-9" author="Alexander">
+        <addForeignKeyConstraint baseColumnNames="room_id" baseTableName="place" constraintName="FK_PLACE_ON_ROOM"
+                                 referencedColumnNames="id" referencedTableName="room"/>
+    </changeSet>
+    <changeSet id="1741365164655-10" author="Alexander">
+        <addForeignKeyConstraint baseColumnNames="room_id" baseTableName="reservation"
+                                 constraintName="FK_RESERVATION_ON_ROOM" referencedColumnNames="id"
+                                 referencedTableName="room"/>
+    </changeSet>
+    <changeSet id="1741365164655-11" author="Alexander">
+        <addForeignKeyConstraint baseColumnNames="coworking_id" baseTableName="room"
+                                 constraintName="FK_ROOM_ON_COWORKING" referencedColumnNames="id"
+                                 referencedTableName="coworking"/>
+    </changeSet>
+    <changeSet id="1741365164655-1" author="Alexander">
+        <alterSequence incrementBy="50" sequenceName="place_id_seq"/>
+    </changeSet>
+    <changeSet id="1741365164655-2" author="Alexander">
+        <alterSequence incrementBy="50" sequenceName="room_id_seq"/>
+    </changeSet>
+    <changeSet id="1741365164655-3" author="Alexander">
+        <modifyDataType columnName="address" newDataType="VARCHAR" tableName="coworking"/>
+    </changeSet>
+    <changeSet id="1741365164655-6" author="Alexander">
+        <modifyDataType columnName="label" newDataType="VARCHAR" tableName="place"/>
+    </changeSet>
+    <changeSet id="1741365164655-7" author="Alexander">
+        <modifyDataType columnName="label" newDataType="VARCHAR" tableName="room"/>
+    </changeSet>
+
+</databaseChangeLog>
