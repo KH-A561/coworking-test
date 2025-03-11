@@ -1,0 +1,5 @@
+databaseChangeLog:
+  - include: 
+      file: db/changelog-test/migrations/create-table-coworking.yaml
+  - include:
+      file: db/changelog-test/migrations/fill-with-data.xml

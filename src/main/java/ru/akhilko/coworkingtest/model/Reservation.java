@@ -1,6 +1,9 @@
 package ru.akhilko.coworkingtest.model;
 
-import java.time.Instant;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
-public record Reservation(Instant reservedFrom, Instant reservedTo, Place place) {
+import java.time.Instant;
+import java.util.UUID;
+
+public record Reservation(UUID id, Instant reservedFrom, Instant reservedTo, @JsonIgnore Room room) {
 }

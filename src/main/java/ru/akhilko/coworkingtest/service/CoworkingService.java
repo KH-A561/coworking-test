@@ -1,20 +1,20 @@
 package ru.akhilko.coworkingtest.service;
 
 
-import ru.akhilko.coworkingtest.dto.CoworkingDto;
 import ru.akhilko.coworkingtest.dto.request.CreateCoworkingRequest;
 import ru.akhilko.coworkingtest.dto.request.UpdateCoworkingRequest;
+import ru.akhilko.coworkingtest.dto.response.CoworkingResponse;
 
 import java.util.List;
 
 public interface CoworkingService {
-    CoworkingDto getById(String coworkingId);
+    CoworkingResponse getById(String coworkingId);
 
-    CoworkingDto create(CreateCoworkingRequest request);
+    CoworkingResponse create(CreateCoworkingRequest request);
 
-    List<CoworkingDto> getAll();
+    List<CoworkingResponse> getAll();
 
-    CoworkingDto update(String coworkingId, UpdateCoworkingRequest request);
+    CoworkingResponse update(String coworkingId, UpdateCoworkingRequest request);
 
     void deleteById(String coworkingId);
 }

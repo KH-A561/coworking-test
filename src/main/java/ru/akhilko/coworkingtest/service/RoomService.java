@@ -1,19 +1,20 @@
 package ru.akhilko.coworkingtest.service;
 
-import ru.akhilko.coworkingtest.dto.RoomDto;
 import ru.akhilko.coworkingtest.dto.request.CreateRoomRequest;
 import ru.akhilko.coworkingtest.dto.request.UpdateRoomRequest;
+import ru.akhilko.coworkingtest.dto.response.RoomResponse;
 
+import java.time.Instant;
 import java.util.List;
 
 public interface RoomService {
-    RoomDto getById(String roomId);
+    RoomResponse getById(Long roomId);
 
-    RoomDto create(CreateRoomRequest request);
+    RoomResponse create(CreateRoomRequest request);
 
-    List<RoomDto> getAll();
+    RoomResponse update(Long roomId, UpdateRoomRequest request);
 
-    RoomDto update(String roomId, UpdateRoomRequest request);
+    void deleteById(Long roomId);
 
-    void deleteById(String roomId);
+    List<RoomResponse> getFreeWithFiltering(Instant freeFrom, Instant freeTo, Integer atLeastPlaces);
 }

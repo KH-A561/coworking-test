@@ -2,7 +2,7 @@ dbms: postgresql
 databaseChangeLog:
   - preConditions:
       - runningAs:
-          username: myuser
+          username: test
   - changeSet:
       id: create-reservation-table
       author: a.khilko
@@ -49,6 +49,11 @@ databaseChangeLog:
             - tableExists:
                 tableName: place
       changes:
+        - createSequence:
+            incrementBy: 50
+            sequenceName: place_id_seq
+            startValue: 10
+            dataType: bigint
         - createTable:
             tableName: place
             columns:
@@ -80,6 +85,11 @@ databaseChangeLog:
             - tableExists:
                 tableName: room
       changes:
+        - createSequence:
+            incrementBy: 50
+            sequenceName: room_id_seq
+            startValue: 10
+            dataType: bigint
         - createTable:
             tableName: room
             columns:
